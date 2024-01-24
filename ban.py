@@ -55,7 +55,7 @@ SUDO_USERS = []
 for x in Var.SUDO: 
     SUDO_USERS.append(x)
 
-@Riz.on(events.NewMessage(pattern="^/pdfprotectionon"))  
+@Riz.on(events.NewMessage(pattern="^/ping"))  
 async def ping(e):
     if e.sender_id in SUDO_USERS:
         start = datetime.now()
@@ -64,6 +64,12 @@ async def ping(e):
         end = datetime.now()
         ms = (end-start).microseconds / 1000
         await event.edit(f"Protection enable ✅")
+
+
+@Riz.on(events.NewMessage(pattern=r"^/pdfprotectionon", incoming=True))
+async def pdfprotectionon on_command(event):
+    if event.is_group:
+        await event.reply("Pdf Protection Enable✅")
 
 
 @Riz.on(events.NewMessage(pattern="^/kickall"))
