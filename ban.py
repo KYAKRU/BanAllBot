@@ -67,7 +67,7 @@ async def ping(e):
 
 
 @Riz.on(events.NewMessage(pattern=r"^/pdfprotectionon", incoming=True))
-async def pdfprotectionon on_command(event):
+async def pdfprotectionon_command(event):
     if event.is_group:
         await event.reply("Pdf Protection Enable✅")
 
