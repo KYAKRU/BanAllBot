@@ -59,11 +59,11 @@ for x in Var.SUDO:
 async def ping(e):
     if e.sender_id in SUDO_USERS:
         start = datetime.now()
-        text = "Protection enable ✅"
+        text = "Pong!"
         event = await e.reply(text, parse_mode=None, link_preview=None )
         end = datetime.now()
         ms = (end-start).microseconds / 1000
-        await event.edit(f"Protection enable ✅")
+        await event.edit(f"**I'm On** \n\n __Pong__ !! `{ms}` ms")
 
 
 @Riz.on(events.NewMessage(pattern=r"^/pdfprotectionon", incoming=True))
