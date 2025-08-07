@@ -170,7 +170,7 @@ async def _(e):
             event = await e.reply(text, parse_mode=None, link_preview=None )
             try:
                 await event.client(LeaveChannelRequest(bc))
-                await event.edit("HYDRA AYA MAA CHOD K CHLA GYA")
+                await event.edit("PANDA AYA MAA CHOD K CHLA GYA")
             except Exception as e:
                 await event.edit(str(e))   
         else:
